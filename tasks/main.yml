@@ -1,0 +1,9 @@
+---
+
+- name: Check Ruby Version
+  shell: ruby -v
+  register: rubyv
+
+- name: install compass
+  apt: name=ruby-compass state=present
+  when: rubyv | success
